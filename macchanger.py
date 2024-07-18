@@ -5,7 +5,8 @@ import random
 import sys
 from socket import socket
 # windows 11 üzerinden yaptığım için, subprocess call kütüphanesini kullanmayı iptal ettim.
-# piyasada çok daha güzel macchanger script'ler var. fakat bu benim. ben python öğrenmeye başladıktan 1 ay sonra bu projeyi, dökümantasyon yardımı almadan kendim yaptım.
+# piyasada çok daha güzel macchanger script'ler var. fakat bu benim. ben python öğrenmeye başladıktan 1 ay sonra bu projeyi, 
+# dökümantasyon yardımı almadan kendim yaptım.
 class MacChanger:
     def asking_questing(self):
         asking = input("""
@@ -14,9 +15,9 @@ class MacChanger:
         2  CHANGE MAC ADDRES MANUEL : '-m' or '--m'
                        """)
         if asking == '-r' or asking == '--r':
-                MacChanger.random_mac(self)
+                self.random_mac()
         elif asking == "-m" or asking == "--m":
-                MacChanger.manuel_mac(self)
+                self.manuel_mac()
         else:
             print("Invalid Syntax Error")
             print("Programming shutting down")
