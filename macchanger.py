@@ -4,7 +4,10 @@ import time
 import random
 import sys
 from socket import socket
-
+# windows 11 üzerinden bu işi yaptığım için subprocess call kütüphanesini kullanmaya gerek duymadım. 
+# virtualbox üzerinden kali için denemiş olduğum bu script'i gereksiz ama kendim için faydalı buluyorum.
+# daha gelişmiş ve süper iyi macchanger ve dhcp spoofing script'ler elbette var. fakat bunu python yolculuğumda 1-2 aylık temel seviyede iken, dökümantasyon yardımı almadan yaptım.
+# o yüzden faydalı buluyorum.
 class MacChanger:
     def asking_questing(self):
         asking = input("""
@@ -25,7 +28,7 @@ class MacChanger:
         mac_list = mac.strip(":")
         random_mac = random.sample(mac_list,12)
         random_mac_str = ":".join(a+b for a,b in zip(random_mac[::2], random_mac[1::2]))
-        return random_mac_str
+        print("new current mac : " , random_mac_str)
     def manuel_mac(self):
         parser = optparse.OptionParser()
         parser.add_option("-i", "--interface", dest="interface", help="Interface to change its")
@@ -35,4 +38,3 @@ class MacChanger:
         sys.exit()
 mcChanger = MacChanger()
 mcChanger.asking_questing()
-print("new current mac : ", mcChanger.random_mac())
